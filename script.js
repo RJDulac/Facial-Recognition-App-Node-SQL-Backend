@@ -12,9 +12,9 @@ const image = require("./controllers/image");
 const db = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
+    host: "postgresql-fitted-41385",
     user: "postgres",
-    password: "yofuck56",
+    password: "",
     database: "braindb"
   }
 });
@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send("testing server");
+  res.send(database.users);
 });
 
 app.post("/signIn", signIn.handleSignIn(db, bcrypt));
